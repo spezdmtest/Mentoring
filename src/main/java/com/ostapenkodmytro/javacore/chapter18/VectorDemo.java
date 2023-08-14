@@ -5,7 +5,7 @@ import java.util.Vector;
 
 public class VectorDemo {
     public static void main(String[] args) {
-        Vector<Integer> v = new Vector<Integer>(3, 2);
+        Vector<Integer> v = new Vector<>(3, 2);
         System.out.println("Начальный размер вектора: " + v.size());
         System.out.println("Начальная емкость вектора: " + v.capacity());
 

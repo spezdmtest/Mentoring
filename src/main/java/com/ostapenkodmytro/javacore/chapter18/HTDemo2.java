@@ -8,7 +8,6 @@ import java.util.Set;
 public class HTDemo2 {
     public static void main(String[] args) {
         Hashtable<String, Double> balance = new Hashtable<>();
-        Enumeration<String> names;
 
         String str;
         double bal;
