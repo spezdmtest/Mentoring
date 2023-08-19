@@ -23,8 +23,7 @@ class HighTemp {
 public class InstanceMethWithObjectRefDemo {
     static <T> int counter(T[] vals, MyFunc2<T> f, T v) {
         int count = 0;
-        for (int i = 0; i < vals.length; i++)
-            if (f.func(vals[i], v)) count++;
+        for (T val : vals) if (f.func(val, v)) count++;
         return count;
     }
 
