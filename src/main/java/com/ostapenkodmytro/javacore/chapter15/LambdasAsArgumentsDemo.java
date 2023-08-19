@@ -14,7 +14,7 @@ public class LambdasAsArgumentsDemo {
         String outStr;
 
         System.out.println("Это исходная строка: " + inStr);
-        outStr = stringOp((str) -> str.toUpperCase(), inStr);
+        outStr = stringOp(String::toUpperCase, inStr);
         System.out.println("Это строка в верхнем регистре: " + outStr);
 
         outStr = stringOp((str) -> {

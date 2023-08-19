@@ -9,8 +9,7 @@ public class VarCapture {
         int num = 10;
 
         MyFunc myLambda = (n) -> {
-            int v = num + n;
-            return v;
+            return num + n;
         };
         System.out.println(myLambda.func(0));
     }

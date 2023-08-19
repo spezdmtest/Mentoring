@@ -18,14 +18,10 @@ public class LambdaExceptionDemo {
             double sum = 0;
             if (n.length == 0)
                 throw new EmptyArrayException();
-
-            for (int i = 0; i < n.length; i++)
-                sum += n[i];
+            for (double v : n) sum += v;
             return sum / n.length;
         };
-
         System.out.println("Среднее равно " + average.func(values));
         System.out.println("Среднее равно " + average.func(new double[0]));
-
     }
 }
