@@ -29,7 +29,6 @@ public class DataIODemo {
             }
         } catch (FileNotFoundException e) {
             System.out.println("Нельзя отктыить файл ввода");
-            return;
         } catch (IOException e) {
             System.out.println("Ошибка ввода-вывода: " + e);
         }
