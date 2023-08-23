@@ -6,9 +6,10 @@ import java.io.IOException;
 
 public class FileWriterDemo {
     public static void main(String[] args) {
-        String source = "Now is the time for all good men\n" +
-                " to come to the aid of their country\n" +
-                " and pay their due taxes.";
+        String source = """
+                Now is the time for all good men
+                 to come to the aid of their country
+                 and pay their due taxes.""";
         char[] buffer = new char[source.length()];
         source.getChars(0, source.length(), buffer, 0);
 
