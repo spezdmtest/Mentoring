@@ -1,9 +1,7 @@
 package com.ostapenkodmytro.javacore.chapter22;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
 
 public class URLDemo {
     public static void main(String[] args) throws IOException {

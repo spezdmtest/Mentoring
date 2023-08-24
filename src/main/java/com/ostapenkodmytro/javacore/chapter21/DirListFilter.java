@@ -9,7 +9,7 @@ public class DirListFilter {
         String dirname = "C:\\Users\\spezdm\\IdeaProjects\\Mentoring\\src\\main\\java";
         DirectoryStream.Filter<Path> how = new DirectoryStream.Filter<Path>() {
             @Override
-            public boolean accept(Path filename) throws IOException {
+            public boolean accept(Path filename) {
                 return Files.isWritable(filename);
             }
         };
