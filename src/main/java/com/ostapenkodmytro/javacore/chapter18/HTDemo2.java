@@ -1,6 +1,5 @@
 package com.ostapenkodmytro.javacore.chapter18;
 
-import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Set;

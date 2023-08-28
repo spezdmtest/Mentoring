@@ -1,7 +1,5 @@
 package com.ostapenkodmytro.javacore.chapter18;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.TreeSet;
 
 public class TreeSetDemo {

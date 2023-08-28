@@ -1,6 +1,5 @@
 package com.ostapenkodmytro.javacore.chapter18;
 
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 

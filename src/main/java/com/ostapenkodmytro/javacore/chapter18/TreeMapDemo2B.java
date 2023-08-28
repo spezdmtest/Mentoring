@@ -1,8 +1,6 @@
 package com.ostapenkodmytro.javacore.chapter18;
 
 import java.util.Comparator;
-import java.util.Map;
-import java.util.Set;
 import java.util.TreeMap;
 
 class TreeMapDemo2B {
