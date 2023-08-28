@@ -51,13 +51,6 @@ public class GsonLabelRepositoryImpl implements LabelRepository {
     public Label update(Label updateLabel) {
         List<Label> currentLabel = loadLabels();
         List<Label> labels = updatedLabels(currentLabel, updateLabel);
-//        List<Label> updatedLabels = currentLabel.stream()
-//                .map(existingLabel -> {
-//                    if (existingLabel.getId().equals(updateLabel.getId())) {
-//                        return updateLabel;
-//                    }
-//                    return existingLabel;
-//                }).toList();
         saveLabels(labels);
         return updateLabel;
     }
@@ -65,7 +58,6 @@ public class GsonLabelRepositoryImpl implements LabelRepository {
     @Override
     public void deleteById(Long id) throws FileNotFoundException {
         List<Label> currentLabel = loadLabels();
-//        currentLabel.removeIf(existingLabel -> existingLabel.getId().equals(id));
         Label label = currentLabel.stream()
                 .filter(existingLabel ->
                         existingLabel.getId().equals(id))
