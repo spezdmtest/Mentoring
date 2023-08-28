@@ -37,13 +37,13 @@ public class GsonLabelRepositoryImpl implements LabelRepository {
 
     @Override
     public Label save(Label label) {
-        List<Label> currentLabel = loadLabels();
-        long nextId = currentLabel.stream()
+        List<Label> currentLabels = loadLabels();
+        long nextId = currentLabels.stream()
                 .mapToLong(Label::getId)
                 .max().orElse(0) + 1;
         label.setId(nextId);
-        currentLabel.add(label);
-        saveLabels(currentLabel);
+        currentLabels.add(label);
+        saveLabels(currentLabels);
         return label;
     }
 
@@ -83,7 +83,7 @@ public class GsonLabelRepositoryImpl implements LabelRepository {
     }
 
     private void saveLabels(List<Label> labels) {
-        try (FileWriter writer = new FileWriter(FILE_PATH)) {
+        try (Writer writer = new FileWriter(FILE_PATH)) {
             gson.toJson(labels, writer);
         } catch (IOException e) {
             e.printStackTrace();
