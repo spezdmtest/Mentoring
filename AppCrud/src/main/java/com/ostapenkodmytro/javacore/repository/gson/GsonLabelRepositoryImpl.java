@@ -90,8 +90,8 @@ public class GsonLabelRepositoryImpl implements LabelRepository {
         }
     }
 
-    private List<Label> updatedLabels(List<Label> currentLabel, Label updateLabel) {
-        return currentLabel.stream()
+    private List<Label> updatedLabels(List<Label> currentLabels, Label updateLabel) {
+        return currentLabels.stream()
                 .map(existingLabel -> {
                     if (existingLabel.getId().equals(updateLabel.getId())) {
                         return updateLabel;
