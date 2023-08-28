@@ -1,7 +1,5 @@
 package com.ostapenkodmytro.javacore.chapter18.Example2;
 
-import org.w3c.dom.ls.LSOutput;
-
 import java.util.HashSet;
 import java.util.Set;
 
