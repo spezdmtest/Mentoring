@@ -7,9 +7,6 @@ package com.ostapenkodmytro.javacore.chapter10.Example;
 //    }
 //}
 
-import java.io.EOFException;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 /*
 public class App {
 //    public static void main(String[] args) {
