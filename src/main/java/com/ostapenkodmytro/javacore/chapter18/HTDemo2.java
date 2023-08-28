@@ -19,10 +19,8 @@ public class HTDemo2 {
 
         Set<String> set = balance.keySet();
 
-        Iterator<String> itr = set.iterator();
-
-        while (itr.hasNext()) {
-            str = itr.next();
+        for (String s : set) {
+            str = s;
             System.out.println(str + ": " + balance.get(str));
         }
 
