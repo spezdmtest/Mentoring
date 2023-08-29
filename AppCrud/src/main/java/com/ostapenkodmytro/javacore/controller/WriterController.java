@@ -14,7 +14,12 @@ public class WriterController {
     private final WriterRepository writerRepository;
 
     public Writer createWriter(String firstName, String lastName, List<Post> posts, Status status) {
-        Writer newWriter = new Writer(firstName, lastName, posts, status);
+        Writer newWriter = Writer.builder()
+                .firstName(firstName)
+                .lastName(lastName)
+                .posts(posts)
+                .status(status)
+                .build();
         return writerRepository.save(newWriter);
     }
 
@@ -27,7 +32,12 @@ public class WriterController {
     }
 
     public Writer updateWriter(Long id, String firstName, String lastName, List<Post> posts, Status status) {
-        Writer updateWriter = new Writer(firstName, lastName, posts, status);
+        Writer updateWriter = Writer.builder()
+                .firstName(firstName)
+                .lastName(lastName)
+                .posts(posts)
+                .status(status)
+                .build();
         updateWriter.setId(id);
         return writerRepository.update(updateWriter);
     }

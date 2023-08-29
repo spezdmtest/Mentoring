@@ -3,6 +3,7 @@ package com.ostapenkodmytro.javacore.repository.gson;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.ostapenkodmytro.javacore.enums.Status;
+import com.ostapenkodmytro.javacore.exception.NotFoundException;
 import com.ostapenkodmytro.javacore.model.Writer;
 import com.ostapenkodmytro.javacore.repository.WriterRepository;
 
@@ -21,7 +22,7 @@ public class GsonWriterRepositoryImpl implements WriterRepository {
     public Writer getById(Long id) {
         return loadWrites().stream()
                 .filter(post -> post.getId().equals(id))
-                .findFirst().orElse(new Writer());
+                .findFirst().orElseThrow(() -> new NotFoundException("Writer not found with id: " + id));
     }
 
     @Override
@@ -55,7 +56,7 @@ public class GsonWriterRepositoryImpl implements WriterRepository {
         Writer writer = currentWrites.stream()
                 .filter(existingWrite ->
                         existingWrite.getId().equals(id))
-                .findFirst().orElse(new Writer());
+                .findFirst().orElseThrow(() -> new NotFoundException("Writer not found with id: " + id));
         writer.setStatus(Status.DELETED);
         saveWrites(currentWrites);
     }
