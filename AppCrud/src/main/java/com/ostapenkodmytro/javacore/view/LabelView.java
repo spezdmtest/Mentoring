@@ -19,7 +19,7 @@ public class LabelView {
     }
 
 
-    public void run() throws FileNotFoundException {
+    public void run()  {
         boolean running = true;
 
         while (running) {
@@ -46,7 +46,7 @@ public class LabelView {
         }
     }
 
-    public void getLabelById() throws FileNotFoundException {
+    public void getLabelById() {
         System.out.println("Enter Label id: ");
         long id = scanner.nextLong();
         Label label = labelController.getLabelById(id);
@@ -80,7 +80,7 @@ public class LabelView {
         System.out.println("Label updated wit ID: " + updatedLabel);
     }
 
-    public void deleteLabel() throws FileNotFoundException {
+    public void deleteLabel() {
         System.out.println("Enter label ID to delete: ");
         long id = scanner.nextLong();
         labelController.deleteLabel(id);

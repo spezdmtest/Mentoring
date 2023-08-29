@@ -6,8 +6,6 @@ import com.ostapenkodmytro.javacore.repository.gson.GsonPostRepositoryImpl;
 import com.ostapenkodmytro.javacore.repository.gson.GsonWriterRepositoryImpl;
 import com.ostapenkodmytro.javacore.view.WriterView;
 
-import java.io.FileNotFoundException;
-
 /**
  * Crud API!
  */

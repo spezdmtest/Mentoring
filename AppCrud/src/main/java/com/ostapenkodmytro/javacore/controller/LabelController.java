@@ -19,7 +19,7 @@ public class LabelController {
         return labelRepository.save(newLabel);
     }
 
-    public Label getLabelById(Long id) throws FileNotFoundException {
+    public Label getLabelById(Long id) {
         return labelRepository.getById(id);
     }
 
@@ -33,7 +33,7 @@ public class LabelController {
         return labelRepository.update(updateLabel);
     }
 
-    public void deleteLabel(Long id) throws FileNotFoundException {
+    public void deleteLabel(Long id) {
         labelRepository.deleteById(id);
     }
 }

@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.ostapenkodmytro.javacore.enums.Status;
 import com.ostapenkodmytro.javacore.model.Label;
-import com.ostapenkodmytro.javacore.model.Post;
 import com.ostapenkodmytro.javacore.repository.LabelRepository;
 
 import java.io.*;

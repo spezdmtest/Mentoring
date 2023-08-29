@@ -15,7 +15,7 @@ import java.util.List;
 public class GsonWriterRepositoryImpl implements WriterRepository {
     private static final String FILE_PATH = "C:/Users/spezdm/IdeaProjects/Mentoring/AppCrud/src/main/resources/writers.json";
 
-    private static Gson gson = new Gson();
+    private static final Gson gson = new Gson();
 
     public GsonWriterRepositoryImpl() {
         loadWrites();

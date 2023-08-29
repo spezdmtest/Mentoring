@@ -1,7 +1,5 @@
 package com.ostapenkodmytro.javacore.repository;
 
-import com.ostapenkodmytro.javacore.model.Post;
-
 import java.util.List;
 
 public interface GenericRepository<T, ID> {

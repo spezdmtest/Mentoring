@@ -6,7 +6,6 @@ import com.ostapenkodmytro.javacore.enums.PostStatus;
 import com.ostapenkodmytro.javacore.model.Label;
 import com.ostapenkodmytro.javacore.model.Post;
 
-import java.io.FileNotFoundException;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Scanner;
@@ -26,7 +25,7 @@ public class PostView {
     }
 
 
-    public void run() throws FileNotFoundException {
+    public void run()  {
         boolean running = true;
 
         while (running) {
