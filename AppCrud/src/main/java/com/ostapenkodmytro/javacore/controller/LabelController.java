@@ -15,7 +15,7 @@ public class LabelController {
     private final LabelRepository labelRepository;
 
     public Label createLabel(String name, Status status) {
-        var newLabel = new Label(name, status);
+        Label newLabel = new Label(name, status);
         return labelRepository.save(newLabel);
     }
 

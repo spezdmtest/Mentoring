@@ -49,22 +49,22 @@ public class GsonLabelRepositoryImpl implements LabelRepository {
 
     @Override
     public Label update(Label updateLabel) {
-        List<Label> currentLabel = loadLabels();
-        List<Label> labels = updatedLabels(currentLabel, updateLabel);
+        List<Label> currentLabels = loadLabels();
+        List<Label> labels = updatedLabels(currentLabels, updateLabel);
         saveLabels(labels);
         return updateLabel;
     }
 
     @Override
     public void deleteById(Long id) throws FileNotFoundException {
-        List<Label> currentLabel = loadLabels();
-        Label label = currentLabel.stream()
+        List<Label> currentLabels = loadLabels();
+        Label label = currentLabels.stream()
                 .filter(existingLabel ->
                         existingLabel.getId().equals(id))
                 .findFirst()
                 .orElseThrow(() -> new FileNotFoundException("Label not found with id" + id));
         label.setStatus(Status.DELETED);
-        saveLabels(currentLabel);
+        saveLabels(currentLabels);
     }
 
     private List<Label> loadLabels() {
