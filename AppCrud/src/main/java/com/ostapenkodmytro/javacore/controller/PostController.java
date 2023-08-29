@@ -14,7 +14,13 @@ public class PostController {
     private final PostRepository postRepository;
 
     public Post createPost(String content, String created, String updated, List<Label> labels, PostStatus status) {
-        Post newPost = new Post(content, created, updated, labels, status);
+        Post newPost = Post.builder()
+                .content(content)
+                .created(created)
+                .updated(updated)
+                .labels(labels)
+                .postStatus(status)
+                .build();
         return postRepository.save(newPost);
     }
 
@@ -27,7 +33,13 @@ public class PostController {
     }
 
     public Post updatePost(Long id, String content, String created, String updated, List<Label> labels, PostStatus status) {
-        Post updatePost = new Post(content, created, updated, labels, status);
+        Post updatePost = Post.builder()
+                .content(content)
+                .created(created)
+                .updated(updated)
+                .labels(labels)
+                .postStatus(status)
+                .build();
         updatePost.setId(id);
         return postRepository.update(updatePost);
     }

@@ -1,8 +1,10 @@
 package com.ostapenkodmytro.javacore;
 
 import com.ostapenkodmytro.javacore.controller.LabelController;
+import com.ostapenkodmytro.javacore.controller.PostController;
 import com.ostapenkodmytro.javacore.repository.gson.GsonLabelRepositoryImpl;
-import com.ostapenkodmytro.javacore.view.LabelView;
+import com.ostapenkodmytro.javacore.repository.gson.GsonPostRepositoryImpl;
+import com.ostapenkodmytro.javacore.view.PostView;
 
 /**
  * Crud API!
@@ -10,17 +12,17 @@ import com.ostapenkodmytro.javacore.view.LabelView;
 public class Main {
     public static void main(String[] args) {
 
-        GsonLabelRepositoryImpl gsonLabelRepository = new GsonLabelRepositoryImpl();
-        LabelController labelController = new LabelController(gsonLabelRepository);
-        LabelView labelView = new LabelView(labelController);
-        labelView.run();
-
 //        GsonLabelRepositoryImpl gsonLabelRepository = new GsonLabelRepositoryImpl();
-//        GsonPostRepositoryImpl gsonPostRepository = new GsonPostRepositoryImpl();
 //        LabelController labelController = new LabelController(gsonLabelRepository);
-//        PostController postController = new PostController(gsonPostRepository);
-//        PostView postView = new PostView(postController,labelController);
-//        postView.run();
+//        LabelView labelView = new LabelView(labelController);
+//        labelView.run();
+
+        GsonLabelRepositoryImpl gsonLabelRepository = new GsonLabelRepositoryImpl();
+        GsonPostRepositoryImpl gsonPostRepository = new GsonPostRepositoryImpl();
+        LabelController labelController = new LabelController(gsonLabelRepository);
+        PostController postController = new PostController(gsonPostRepository);
+        PostView postView = new PostView(postController,labelController);
+        postView.run();
 //
 //        GsonPostRepositoryImpl gsonPostRepository = new GsonPostRepositoryImpl();
 //        GsonWriterRepositoryImpl gsonWriterRepository = new GsonWriterRepositoryImpl();

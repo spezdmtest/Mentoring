@@ -1,17 +1,15 @@
 package com.ostapenkodmytro.javacore.model;
 
 import com.ostapenkodmytro.javacore.enums.PostStatus;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.List;
 
-@NoArgsConstructor
+
 @Getter
 @Setter
 @ToString
+@Builder
 public class Post {
     private Long id;
     private String content;
@@ -19,12 +17,4 @@ public class Post {
     private String updated;
     private List<Label> labels;
     private PostStatus postStatus;
-
-    public Post(String content, String created, String updated, List<Label> labels, PostStatus postStatus) {
-        this.content = content;
-        this.created = created;
-        this.updated = updated;
-        this.labels = labels;
-        this.postStatus = postStatus;
-    }
 }

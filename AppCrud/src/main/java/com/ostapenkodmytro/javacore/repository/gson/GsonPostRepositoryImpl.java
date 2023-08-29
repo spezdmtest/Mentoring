@@ -3,6 +3,7 @@ package com.ostapenkodmytro.javacore.repository.gson;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.ostapenkodmytro.javacore.enums.PostStatus;
+import com.ostapenkodmytro.javacore.exception.NotFoundException;
 import com.ostapenkodmytro.javacore.model.Post;
 import com.ostapenkodmytro.javacore.repository.PostRepository;
 
@@ -21,7 +22,7 @@ public class GsonPostRepositoryImpl implements PostRepository {
     public Post getById(Long id) {
         return loadPosts().stream()
                 .filter(post -> post.getId().equals(id))
-                .findFirst().orElse(new Post());
+                .findFirst().orElseThrow(() -> new NotFoundException("Post not found with id: " + id));
     }
 
     @Override
@@ -55,7 +56,7 @@ public class GsonPostRepositoryImpl implements PostRepository {
         Post post = currentPosts.stream()
                 .filter(existingPost ->
                         existingPost.getId().equals(id))
-                .findFirst().orElse(new Post());
+                .findFirst().orElseThrow(() -> new NotFoundException("Post not found with id: " + id));
         post.setPostStatus(PostStatus.DELETED);
         savePosts(currentPosts);
     }
