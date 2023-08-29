@@ -1,12 +1,9 @@
 package com.ostapenkodmytro.javacore;
 
-import com.ostapenkodmytro.javacore.controller.LabelController;
 import com.ostapenkodmytro.javacore.controller.PostController;
 import com.ostapenkodmytro.javacore.controller.WriterController;
-import com.ostapenkodmytro.javacore.repository.gson.GsonLabelRepositoryImpl;
 import com.ostapenkodmytro.javacore.repository.gson.GsonPostRepositoryImpl;
 import com.ostapenkodmytro.javacore.repository.gson.GsonWriterRepositoryImpl;
-import com.ostapenkodmytro.javacore.view.PostView;
 import com.ostapenkodmytro.javacore.view.WriterView;
 
 /**
