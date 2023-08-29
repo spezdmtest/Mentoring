@@ -14,7 +14,10 @@ public class LabelController {
     private final LabelRepository labelRepository;
 
     public Label createLabel(String name, Status status) {
-        Label newLabel = new Label(name, status);
+        Label newLabel = Label.builder()
+                .name(name)
+                .status(status)
+                .build();
         return labelRepository.save(newLabel);
     }
 
@@ -27,7 +30,10 @@ public class LabelController {
     }
 
     public Label updateLabel(Long id, String name, Status status) {
-        Label updateLabel = new Label(name, status);
+        Label updateLabel = Label.builder()
+                .name(name)
+                .status(status)
+                .build();
         updateLabel.setId(id);
         return labelRepository.update(updateLabel);
     }

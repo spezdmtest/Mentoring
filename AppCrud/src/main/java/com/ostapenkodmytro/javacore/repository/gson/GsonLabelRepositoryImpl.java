@@ -3,6 +3,7 @@ package com.ostapenkodmytro.javacore.repository.gson;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.ostapenkodmytro.javacore.enums.Status;
+import com.ostapenkodmytro.javacore.exception.NotFoundException;
 import com.ostapenkodmytro.javacore.model.Label;
 import com.ostapenkodmytro.javacore.repository.LabelRepository;
 
@@ -14,19 +15,15 @@ import java.util.List;
 
 public class GsonLabelRepositoryImpl implements LabelRepository {
 
-    private static final String FILE_PATH = "C:/Users/spezdm/IdeaProjects/Mentoring/AppCrud/src/main/resources/labels.json";
+    private final String FILE_PATH = "C:/Users/spezdm/IdeaProjects/Mentoring/AppCrud/src/main/resources/labels.json";
 
     private final Gson gson = new Gson();
-
-    public GsonLabelRepositoryImpl() {
-        loadLabels();
-    }
 
     @Override
     public Label getById(Long id) {
         return loadLabels().stream()
                 .filter(label -> label.getId().equals(id))
-                .findFirst().orElse(new Label());
+                .findFirst().orElseThrow(() -> new NotFoundException("Label not found with id: " + id));
     }
 
     @Override
@@ -61,7 +58,7 @@ public class GsonLabelRepositoryImpl implements LabelRepository {
                 .filter(existingLabel ->
                         existingLabel.getId().equals(id))
                 .findFirst()
-                .orElse(new Label());
+                .orElseThrow(() -> new NotFoundException("Label not found with id: " + id));
         label.setStatus(Status.DELETED);
         saveLabels(currentLabels);
     }

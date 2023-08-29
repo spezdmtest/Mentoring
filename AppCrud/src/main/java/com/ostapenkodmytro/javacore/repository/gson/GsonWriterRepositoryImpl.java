@@ -13,13 +13,9 @@ import java.util.Collections;
 import java.util.List;
 
 public class GsonWriterRepositoryImpl implements WriterRepository {
-    private static final String FILE_PATH = "C:/Users/spezdm/IdeaProjects/Mentoring/AppCrud/src/main/resources/writers.json";
+    private final String FILE_PATH = "C:/Users/spezdm/IdeaProjects/Mentoring/AppCrud/src/main/resources/writers.json";
 
     private static final Gson gson = new Gson();
-
-    public GsonWriterRepositoryImpl() {
-        loadWrites();
-    }
 
     @Override
     public Writer getById(Long id) {

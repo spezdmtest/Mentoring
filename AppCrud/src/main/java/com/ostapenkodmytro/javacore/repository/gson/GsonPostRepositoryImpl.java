@@ -14,12 +14,8 @@ import java.util.List;
 
 public class GsonPostRepositoryImpl implements PostRepository {
 
-    private static final String FILE_PATH = "C:/Users/spezdm/IdeaProjects/Mentoring/AppCrud/src/main/resources/posts.json";
+    private final String FILE_PATH = "C:/Users/spezdm/IdeaProjects/Mentoring/AppCrud/src/main/resources/posts.json";
     private final Gson gson = new Gson();
-
-    public GsonPostRepositoryImpl() {
-        loadPosts();
-    }
 
     @Override
     public Post getById(Long id) {
