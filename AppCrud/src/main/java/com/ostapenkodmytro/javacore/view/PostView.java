@@ -53,11 +53,11 @@ public class PostView {
         }
     }
 
-    public void getPostById() throws FileNotFoundException {
+    public void getPostById() {
         System.out.println("Enter Label id: ");
         long id = scanner.nextLong();
         Post post = postController.getPostById(id);
-        System.out.println("Label found: " + post);
+        System.out.println("Post found: " + post);
     }
 
 
@@ -78,7 +78,7 @@ public class PostView {
                 .forEach(System.out::println);
     }
 
-    public void updatePost() throws FileNotFoundException {
+    public void updatePost() {
         System.out.println("Enter Post id to update: ");
         long id = scanner.nextLong();
         scanner.nextLine();
@@ -91,10 +91,10 @@ public class PostView {
         Post postById = postController.getPostById(id);
         String created = postById.getCreated();
         Post updatedPost = postController.updatePost(id, content, created, updatedTime, labels, status);
-        System.out.println("Post updated wit ID: " + updatedPost);
+        System.out.println("Post updated with ID: " + updatedPost);
     }
 
-    public void deletePost() throws FileNotFoundException {
+    public void deletePost() {
         System.out.println("Enter post ID to delete: ");
         long id = scanner.nextLong();
         postController.deletePost(id);

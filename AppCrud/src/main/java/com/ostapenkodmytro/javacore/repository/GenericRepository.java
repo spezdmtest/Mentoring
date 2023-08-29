@@ -1,10 +1,11 @@
 package com.ostapenkodmytro.javacore.repository;
 
-import java.io.FileNotFoundException;
+import com.ostapenkodmytro.javacore.model.Post;
+
 import java.util.List;
 
 public interface GenericRepository<T, ID> {
-    T getById(ID id) throws FileNotFoundException;
+    T getById(ID id);
 
     List<T> getAll();
 
@@ -12,5 +13,5 @@ public interface GenericRepository<T, ID> {
 
     T update(T t);
 
-    void deleteById(ID id) throws FileNotFoundException;
+    void deleteById(ID id);
 }

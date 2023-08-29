@@ -6,8 +6,6 @@ import com.ostapenkodmytro.javacore.model.Post;
 import com.ostapenkodmytro.javacore.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 
-import java.io.FileNotFoundException;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -20,7 +18,7 @@ public class PostController {
         return postRepository.save(newPost);
     }
 
-    public Post getPostById(Long id) throws FileNotFoundException {
+    public Post getPostById(Long id) {
         return postRepository.getById(id);
     }
 
@@ -34,7 +32,7 @@ public class PostController {
         return postRepository.update(updatePost);
     }
 
-    public void deletePost(Long id) throws FileNotFoundException {
+    public void deletePost(Long id) {
         postRepository.deleteById(id);
     }
 }

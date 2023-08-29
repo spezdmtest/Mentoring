@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.ostapenkodmytro.javacore.enums.Status;
 import com.ostapenkodmytro.javacore.model.Label;
+import com.ostapenkodmytro.javacore.model.Post;
 import com.ostapenkodmytro.javacore.repository.LabelRepository;
 
 import java.io.*;
@@ -23,11 +24,10 @@ public class GsonLabelRepositoryImpl implements LabelRepository {
     }
 
     @Override
-    public Label getById(Long id) throws FileNotFoundException {
+    public Label getById(Long id) {
         return loadLabels().stream()
                 .filter(label -> label.getId().equals(id))
-                .findFirst()
-                .orElseThrow(() -> new FileNotFoundException("Label not found with id" + id));
+                .findFirst().orElse(new Label());
     }
 
     @Override
@@ -56,13 +56,13 @@ public class GsonLabelRepositoryImpl implements LabelRepository {
     }
 
     @Override
-    public void deleteById(Long id) throws FileNotFoundException {
+    public void deleteById(Long id) {
         List<Label> currentLabels = loadLabels();
         Label label = currentLabels.stream()
                 .filter(existingLabel ->
                         existingLabel.getId().equals(id))
                 .findFirst()
-                .orElseThrow(() -> new FileNotFoundException("Label not found with id" + id));
+                .orElse(new Label());
         label.setStatus(Status.DELETED);
         saveLabels(currentLabels);
     }

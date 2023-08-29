@@ -17,16 +17,15 @@ public class GsonPostRepositoryImpl implements PostRepository {
     private static final String FILE_PATH = "C:/Users/spezdm/IdeaProjects/Mentoring/AppCrud/src/main/resources/posts.json";
     private final Gson gson = new Gson();
 
-    public GsonPostRepositoryImpl() throws FileNotFoundException {
+    public GsonPostRepositoryImpl() {
         loadPosts();
     }
 
     @Override
-    public Post getById(Long id) throws FileNotFoundException {
+    public Post getById(Long id) {
         return loadPosts().stream()
                 .filter(post -> post.getId().equals(id))
-                .findFirst()
-                .orElseThrow(() -> new FileNotFoundException("Post not found with id" + id));
+                .findFirst().orElse(new Post());
     }
 
     @Override
@@ -55,13 +54,12 @@ public class GsonPostRepositoryImpl implements PostRepository {
     }
 
     @Override
-    public void deleteById(Long id) throws FileNotFoundException {
+    public void deleteById(Long id) {
         List<Post> currentPosts = loadPosts();
         Post post = currentPosts.stream()
                 .filter(existingPost ->
                         existingPost.getId().equals(id))
-                .findFirst()
-                .orElseThrow(() -> new FileNotFoundException("Post not found with id" + id));
+                .findFirst().orElse(new Post());
         post.setPostStatus(PostStatus.DELETED);
         savePosts(currentPosts);
     }
