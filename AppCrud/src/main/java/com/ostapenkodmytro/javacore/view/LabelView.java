@@ -4,7 +4,6 @@ import com.ostapenkodmytro.javacore.controller.LabelController;
 import com.ostapenkodmytro.javacore.enums.Status;
 import com.ostapenkodmytro.javacore.model.Label;
 
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 

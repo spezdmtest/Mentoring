@@ -60,7 +60,7 @@ public class PostView {
     }
 
 
-    public Post createPost() {
+    public void createPost() {
         System.out.println("Enter content: ");
         String content = scanner.nextLine();
         PostStatus status = PostStatus.ACTIVE;
@@ -68,7 +68,6 @@ public class PostView {
         List<Label> labels = labelController.getALLLabels();
         Post newPost = postController.createPost(content, createTime, null, labels, status);
         System.out.println("Post created with ID: " + newPost.getId());
-        return newPost;
     }
 
     public void getAllPosts() {

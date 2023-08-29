@@ -6,7 +6,6 @@ import com.ostapenkodmytro.javacore.model.Label;
 import com.ostapenkodmytro.javacore.repository.LabelRepository;
 import lombok.RequiredArgsConstructor;
 
-import java.io.FileNotFoundException;
 import java.util.List;
 
 @RequiredArgsConstructor
