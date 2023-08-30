@@ -1,7 +1,5 @@
 package com.ostapenkodmytro.javacore.chapter11;
 
-import javax.xml.transform.TransformerException;
-
 class Q {
     int n;
 
