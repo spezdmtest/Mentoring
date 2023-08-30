@@ -33,9 +33,7 @@ public class GsonWriterRepositoryImpl implements WriterRepository {
     @Override
     public Writer save(Writer writer) {
         List<Writer> currentWriters = loadWrites();
-        long nextId = currentWriters.stream()
-                .mapToLong(Writer::getId)
-                .max().orElse(0) + 1;
+        long nextId = IdGenerated.generatedNextId(currentWriters, Writer::getId);
         writer.setId(nextId);
         currentWriters.add(writer);
         saveWrites(currentWriters);

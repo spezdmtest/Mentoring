@@ -33,9 +33,7 @@ public class GsonPostRepositoryImpl implements PostRepository {
     @Override
     public Post save(Post post) {
         List<Post> currentPosts = loadPosts();
-        long nextId = currentPosts.stream()
-                .mapToLong(Post::getId)
-                .max().orElse(0) + 1;
+        long nextId = IdGenerated.generatedNextId(currentPosts, Post::getId);
         post.setId(nextId);
         currentPosts.add(post);
         savePosts(currentPosts);
