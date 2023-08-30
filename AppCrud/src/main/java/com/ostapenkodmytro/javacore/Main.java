@@ -24,11 +24,14 @@ public class Main {
 //        PostView postView = new PostView(postController,labelController);
 //        postView.run();
 //
-        GsonPostRepositoryImpl gsonPostRepository = new GsonPostRepositoryImpl();
-        GsonWriterRepositoryImpl gsonWriterRepository = new GsonWriterRepositoryImpl();
-        PostController postController = new PostController(gsonPostRepository);
-        WriterController writerController = new WriterController(gsonWriterRepository);
-        WriterView writerView = new WriterView(postController, writerController);
-        writerView.run();
+//        GsonPostRepositoryImpl gsonPostRepository = new GsonPostRepositoryImpl();
+//        GsonWriterRepositoryImpl gsonWriterRepository = new GsonWriterRepositoryImpl();
+//        PostController postController = new PostController(gsonPostRepository);
+//        WriterController writerController = new WriterController(gsonWriterRepository);
+//        WriterView writerView = new WriterView(postController, writerController);
+//        writerView.run();
+
+        ApplicationContext applicationContext = new ApplicationContext();
+        applicationContext.start();
     }
 }
