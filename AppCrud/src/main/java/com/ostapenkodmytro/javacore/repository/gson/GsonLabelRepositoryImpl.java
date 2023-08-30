@@ -34,9 +34,7 @@ public class GsonLabelRepositoryImpl implements LabelRepository {
     @Override
     public Label save(Label label) {
         List<Label> currentLabels = loadLabels();
-        long nextId = currentLabels.stream()
-                .mapToLong(Label::getId)
-                .max().orElse(0) + 1;
+        long nextId = IdGenerated.generatedNextId(currentLabels, Label::getId);
         label.setId(nextId);
         currentLabels.add(label);
         saveLabels(currentLabels);
