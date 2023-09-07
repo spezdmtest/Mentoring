@@ -42,8 +42,8 @@ public class FooDemo {
 }
 
 class Foo {
-    private Semaphore semaphore1;
-    private Semaphore semaphore2;
+    private final Semaphore semaphore1;
+    private final Semaphore semaphore2;
 
     public Foo() {
         semaphore1 = new Semaphore(1);
