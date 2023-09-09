@@ -1,12 +1,13 @@
 package com.ostapenkodmytro.javacore.Example1_4;
 
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Semaphore;
 
 public class FooDemo {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
         Foo foo = new Foo();
-        CompletableFuture.runAsync(new Runnable() {
+        CompletableFuture<Void> first = CompletableFuture.runAsync(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -17,7 +18,7 @@ public class FooDemo {
             }
         });
 
-        CompletableFuture.runAsync(new Runnable() {
+        CompletableFuture<Void> second = CompletableFuture.runAsync(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -28,7 +29,7 @@ public class FooDemo {
             }
         });
 
-        CompletableFuture.runAsync(new Runnable() {
+        CompletableFuture<Void> third = CompletableFuture.runAsync(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -38,6 +39,10 @@ public class FooDemo {
                 }
             }
         });
+
+        first.get();
+        second.get();
+        third.get();
     }
 }
 
