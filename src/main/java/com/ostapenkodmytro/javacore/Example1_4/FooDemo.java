@@ -48,14 +48,10 @@ public class FooDemo {
 
 class Foo {
     private final Semaphore semaphore1;
-    private final Semaphore semaphore2;
-
     public Foo() {
         semaphore1 = new Semaphore(1);
-        semaphore2 = new Semaphore(1);
         try {
             semaphore1.acquire();
-            semaphore2.acquire();
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -67,11 +63,12 @@ class Foo {
     void second(Runnable r) throws InterruptedException {
         semaphore1.acquire();
         print("second");
-        semaphore2.release();
+        semaphore1.release();
     }
     void third(Runnable r) throws InterruptedException {
-        semaphore2.acquire();
+        semaphore1.acquire();
         print("third");
+        semaphore1.release();
     }
     private void print(String str) {
         System.out.print(str);
