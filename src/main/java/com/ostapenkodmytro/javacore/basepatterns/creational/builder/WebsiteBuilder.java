@@ -16,5 +16,4 @@ public abstract class WebsiteBuilder {
     Website getWebsite() {
         return website;
     }
-
 }

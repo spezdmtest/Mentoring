@@ -6,6 +6,5 @@ public class BuildWebsiteRunner {
         director.setBuilder(new EnterpriseWebsiteBuilder());
         Website website = director.builderWebsite();
         System.out.println(website);
-
     }
 }
