@@ -1,4 +1,4 @@
-package com.ostapenkodmytro.javacore.basepatterns.structural;
+package com.ostapenkodmytro.javacore.basepatterns.structural.adapter;
 
 public class DatabaseRunner {
     public static void main(String[] args) {
