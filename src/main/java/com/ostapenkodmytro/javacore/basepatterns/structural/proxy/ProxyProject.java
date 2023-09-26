@@ -1,7 +1,7 @@
 package com.ostapenkodmytro.javacore.basepatterns.structural.proxy;
 
 public class ProxyProject implements Project {
-    private String url;
+    private final String url;
     private RealProject realProject;
 
     public ProxyProject(String url) {
